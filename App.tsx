@@ -9,11 +9,15 @@ import React from 'react';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
+import Stack from './src/navigators/Stack';
 
 function App(): JSX.Element {
-  React.useEffect(() => setTimeout(() => SplashScreen.hide(), 3000), []);
+  React.useEffect(() => {
+    setTimeout(() => SplashScreen.hide());
+  }, []);
   return (
     <NavigationContainer>
+      <Stack />
       <StatusBar />
     </NavigationContainer>
   );
