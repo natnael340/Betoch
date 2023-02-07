@@ -18,7 +18,7 @@ function App(): JSX.Element {
   return (
     <NavigationContainer>
       <Stack />
-      <StatusBar />
+      <StatusBar hidden />
     </NavigationContainer>
   );
 }
