@@ -1,6 +1,6 @@
 import {View} from 'react-native';
 import React from 'react';
-import OnBoardOne from '../molecules/onBoardOne';
+import OnBoard from '../molecules/onBoardOne';
 import OnBoardFooter from '../molecules/onBoardOneFooter';
 
 type Props = {
@@ -10,13 +10,14 @@ type Props = {
   };
   OnNext: () => void;
 };
-const OnboardOneFooterHeader = ({data, OnNext}: Props) => {
+
+const OnboardTwoBottom = ({data, OnNext}: Props) => {
   return (
-    <View className="flex-1 justify-between items-center">
-      <OnBoardOne title={data.title} info={data.info} />
+    <View className="flex-1 justify-between m-0 p-0">
+      <OnBoard title={data.title} info={data.info} />
       <OnBoardFooter OnNext={OnNext} />
     </View>
   );
 };
 
-export default OnboardOneFooterHeader;
+export default OnboardTwoBottom;

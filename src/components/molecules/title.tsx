@@ -4,11 +4,14 @@ import Logo from '../atoms/logo';
 import Title from '../atoms/title';
 import {white} from '../../assets/colors';
 
-const title = () => {
+type Props = {
+  color?: string;
+};
+const title = ({color}: Props) => {
   return (
     <View className="flex-row items-end">
-      <Logo color={white} size={80} />
-      <Title color={white} size={36} />
+      <Logo color={color || white} size={80} />
+      <Title color={color || white} size={36} />
     </View>
   );
 };

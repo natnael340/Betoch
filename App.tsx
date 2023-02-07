@@ -13,7 +13,7 @@ import Stack from './src/navigators/Stack';
 
 function App(): JSX.Element {
   React.useEffect(() => {
-    setTimeout(() => SplashScreen.hide());
+    SplashScreen.hide();
   }, []);
   return (
     <NavigationContainer>

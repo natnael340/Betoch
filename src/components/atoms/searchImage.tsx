@@ -5,7 +5,7 @@ const searchImage = () => {
   return (
     <Image
       source={require('../../assets/homesearch.png')}
-      className="w-60 h-60"
+      className="w-52 h-52"
     />
   );
 };
