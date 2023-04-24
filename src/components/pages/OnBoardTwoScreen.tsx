@@ -21,7 +21,7 @@ const OnBoardTwoScreen = () => {
     OnNext: () => navigation.navigate('OnboardThree'),
   };
   return (
-    <View className="flex-1 justify-between">
+    <View className="flex-1 justify-between bg-white">
       <Container>
         <OnboardTwoTopHeader />
       </Container>
@@ -29,7 +29,11 @@ const OnBoardTwoScreen = () => {
         <OnboardTwoCenterHeader />
       </Container>
       <Container>
-        <OnboardTwoBottom data={onBoardTwoScreenTexts} OnNext={action.OnNext} />
+        <OnboardTwoBottom
+          data={onBoardTwoScreenTexts}
+          OnNext={action.OnNext}
+          currentScreenIndex={2}
+        />
       </Container>
     </View>
   );

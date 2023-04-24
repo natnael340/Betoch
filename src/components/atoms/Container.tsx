@@ -1,4 +1,4 @@
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ViewStyle} from 'react-native';
 import React from 'react';
 
 type Props = {
@@ -16,13 +16,20 @@ type Props = {
     | 'bottomLeft'
     | 'bottomRight'
     | 'bottomCenter';
+  style?: ViewStyle;
   children: JSX.Element;
 };
 type positionType = {
   justifyContent: 'center' | 'flex-end' | 'flex-start' | undefined;
   alignItems: 'center' | 'flex-end' | 'flex-start' | undefined;
 };
-const Container = ({flex, alignment, position, children}: Props) => {
+const Container = ({
+  flex,
+  alignment,
+  position,
+  style: _style,
+  children,
+}: Props) => {
   let pos: positionType = {
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
@@ -76,7 +83,7 @@ const Container = ({flex, alignment, position, children}: Props) => {
       alignItems: pos.alignItems,
     },
   });
-  return <View style={style.container}>{children}</View>;
+  return <View style={[style.container, _style]}>{children}</View>;
 };
 
 export default Container;

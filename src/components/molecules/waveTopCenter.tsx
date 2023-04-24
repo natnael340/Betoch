@@ -1,12 +1,12 @@
-import {View} from 'react-native';
 import React from 'react';
 import WaveTopCenterAtom from '../atoms/waveTopCenter';
+import WaveContainer from '../atoms/waveContainer';
 
 const waveTopCenter = () => {
   return (
-    <View className="absolute top-0 left-0 right-0 bottom-0">
+    <WaveContainer>
       <WaveTopCenterAtom />
-    </View>
+    </WaveContainer>
   );
 };
 

@@ -14,7 +14,7 @@ const OnboardOneFooterHeader = ({data, OnNext}: Props) => {
   return (
     <View className="flex-1 justify-between items-center">
       <OnBoardOne title={data.title} info={data.info} />
-      <OnBoardFooter OnNext={OnNext} />
+      <OnBoardFooter OnNext={OnNext} currentScreenIndex={1} />
     </View>
   );
 };

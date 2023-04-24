@@ -6,14 +6,17 @@ import OnBoardLoading from './onBoardLoading';
 
 type Props = {
   OnNext: () => void;
+  currentScreenIndex: number;
 };
-const OnBoardOneFooter = ({OnNext}: Props) => {
+const OnBoardOneFooter = ({OnNext, currentScreenIndex}: Props) => {
   return (
     <View className="flex-row justify-between w-full p-5 mt-5 items-center">
       <Text>Skip</Text>
-      <OnBoardLoading active={1} />
+      <OnBoardLoading active={currentScreenIndex} />
       <TouchableOpacity onPress={OnNext}>
-        <Text color={primary}>Next</Text>
+        <Text color={primary}>
+          {currentScreenIndex === 3 ? 'Get Started' : 'Next'}
+        </Text>
       </TouchableOpacity>
     </View>
   );

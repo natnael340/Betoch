@@ -9,13 +9,15 @@ type Props = {
     info: string;
   };
   OnNext: () => void;
+  currentScreenIndex: number;
 };
 
-const OnboardTwoBottom = ({data, OnNext}: Props) => {
+const OnboardTwoBottom = ({data, OnNext, currentScreenIndex}: Props) => {
+  console.log('here', currentScreenIndex);
   return (
     <View className="flex-1 justify-between m-0 p-0">
       <OnBoard title={data.title} info={data.info} />
-      <OnBoardFooter OnNext={OnNext} />
+      <OnBoardFooter OnNext={OnNext} currentScreenIndex={currentScreenIndex} />
     </View>
   );
 };

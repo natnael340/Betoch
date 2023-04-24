@@ -6,3 +6,7 @@ export const onBoardTwoScreenTexts = {
   title: 'Contact Brokers',
   info: 'Use the messaging feature to contact brokers to inquire about listings',
 };
+export const onBoardThreeScreenTexts = {
+  title: 'Contact Brokers',
+  info: 'Use the messaging feature to contact brokers to inquire about listings',
+};

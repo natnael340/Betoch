@@ -1,8 +1,9 @@
 import {View} from 'react-native';
 import React from 'react';
-import BottomHeader from '../organisms/OnboardOneFooterHeader';
-import {ActionType} from '../pages/OnBoardOneScreen';
 import Container from '../atoms/Container';
+import {ActionType} from '../pages/OnBoardOneScreen';
+import OnboardTwoBottom from '../organisms/OnboardTwoBottom';
+
 type Props = {
   Top: React.FunctionComponent;
   Center: React.FunctionComponent;
@@ -12,20 +13,24 @@ type Props = {
   };
   action: ActionType;
 };
-const OnBoardOneTemplate = ({Top, data, action, Center}: Props) => {
+const OnBoardThreeTemplate = ({Top, Center, data, action}: Props) => {
   return (
     <View className="flex-1 justify-between bg-white">
       <Container flex={1.7}>
         <Top />
       </Container>
-      <Container>
+      <Container style={{top: -50}}>
         <Center />
       </Container>
       <Container>
-        <BottomHeader data={data} OnNext={action.OnNext} />
+        <OnboardTwoBottom
+          data={data}
+          OnNext={action.OnNext}
+          currentScreenIndex={3}
+        />
       </Container>
     </View>
   );
 };
 
-export default OnBoardOneTemplate;
+export default OnBoardThreeTemplate;
