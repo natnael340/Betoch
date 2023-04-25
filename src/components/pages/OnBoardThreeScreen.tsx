@@ -18,7 +18,7 @@ const OnBoardThreeScreen = () => {
   const navigation = useNavigation<NavigationProp>();
 
   const action: ActionType = {
-    OnNext: () => navigation.navigate('OnboardTwo'),
+    OnNext: () => navigation.navigate('Signup'),
   };
   return (
     <View className="flex-1">
