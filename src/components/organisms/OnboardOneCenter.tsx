@@ -4,7 +4,7 @@ import SearchImage from '../atoms/searchImage';
 
 const OnboardOneCenter = () => {
   return (
-    <View className="justify-center items-center">
+    <View className="justify-center items-center bg-transparent">
       <SearchImage />
     </View>
   );

@@ -7,6 +7,7 @@ type Props = {
     value: string;
     inputType?: 'numeric' | 'email-address';
     showPassword?: boolean;
+    leftComponent?: JSX.Element;
   }[];
   onChange: (field: string, value: string) => void;
   onSubmit: () => void;
@@ -33,6 +34,7 @@ const FormBody = ({
           inputType={field?.inputType}
           showPassword={field.showPassword}
           togglePasswordVisibility={togglePasswordVisibility}
+          leftComponent={field?.leftComponent}
         />
       ))}
       {additionalFormComponent}

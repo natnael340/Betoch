@@ -5,12 +5,20 @@ import OnBoardTwoScreen from '../components/pages/OnBoardTwoScreen';
 import OnBoardThreeScreen from '../components/pages/OnBoardThreeScreen';
 import Signup from '../components/pages/Signup';
 import Login from '../components/pages/Login';
+import TwoFA from '../components/pages/TwoFA';
+import PasswordReset from '../components/pages/PasswordReset';
+import PasswordResetRequest from '../components/pages/PasswordResetRequest';
+import AccountVerfication from '../components/pages/AccountVerfication';
 export type RootStackParamList = {
   OnboardOne: undefined;
   OnboardTwo: undefined;
   OnboardThree: undefined;
   Signup: undefined;
   Login: undefined;
+  TwoFA: undefined;
+  PasswordReset: undefined;
+  PasswordResetRequest: undefined;
+  AccountVerfication: undefined;
 };
 const Stack = () => {
   const StackNav = createNativeStackNavigator<RootStackParamList>();
@@ -30,6 +38,16 @@ const Stack = () => {
       <StackNav.Group>
         <StackNav.Screen name="Signup" component={Signup} />
         <StackNav.Screen name="Login" component={Login} />
+        <StackNav.Screen name="TwoFA" component={TwoFA} />
+        <StackNav.Screen
+          name="AccountVerfication"
+          component={AccountVerfication}
+        />
+        <StackNav.Screen name="PasswordReset" component={PasswordReset} />
+        <StackNav.Screen
+          name="PasswordResetRequest"
+          component={PasswordResetRequest}
+        />
       </StackNav.Group>
     </StackNav.Navigator>
   );

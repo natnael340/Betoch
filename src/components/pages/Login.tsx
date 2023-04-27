@@ -6,7 +6,13 @@ import LoginTemplate from '../templates/LoginTemplate';
 import OnBoardThreeHeader from '../organisms/OnBoardThreeHeader';
 import FormBody from '../organisms/FormBody';
 import OauthFooter from '../organisms/OauthFooter';
-import ForgotPasswordLink from '../molecules/forgotPasswordLink';
+import Link from '../molecules/link';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../navigators/Stack';
+import {useNavigation} from '@react-navigation/native';
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
+
 const Login = () => {
   const [authForm, setAuthForm] = useState<AuthForm>([
     {name: 'Email', value: '', inputType: 'email-address'},
@@ -17,6 +23,9 @@ const Login = () => {
       authForm.map(form => (form.name === field ? {...form, value} : form)),
     );
   };
+
+  const navigation = useNavigation<NavigationProp>();
+
   const togglePasswordVisibility = (field: string) => {
     setAuthForm(
       authForm.map(form =>
@@ -35,11 +44,14 @@ const Login = () => {
             <FormBody
               fields={authForm}
               onChange={OnChangeForm}
-              onSubmit={() => null}
+              onSubmit={() => navigation.navigate('TwoFA')}
               submitText="Login"
               togglePasswordVisibility={togglePasswordVisibility}
               additionalFormComponent={
-                <ForgotPasswordLink onPress={() => null} />
+                <Link
+                  onPress={() => navigation.navigate('PasswordResetRequest')}
+                  text="Forgot Password?"
+                />
               }
             />
           </View>
@@ -48,7 +60,7 @@ const Login = () => {
           <OauthFooter
             alternativeText="Dont have an account?"
             alertnativeButtonText="Signup"
-            alertnativeButtonOnPress={() => null}
+            alertnativeButtonOnPress={() => navigation.navigate('Signup')}
           />
         }
       />

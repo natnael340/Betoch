@@ -11,6 +11,7 @@ type Props = {
   inputType?: 'numeric' | 'email-address';
   showPassword?: boolean;
   togglePasswordVisibility?: (field: string) => void;
+  leftComponent?: JSX.Element;
 };
 const TextInputWrapped = ({
   label,
@@ -19,6 +20,7 @@ const TextInputWrapped = ({
   inputType,
   showPassword,
   togglePasswordVisibility,
+  leftComponent,
 }: Props) => {
   return (
     <View className="my-1">
@@ -44,6 +46,7 @@ const TextInputWrapped = ({
           )}
         </TouchableOpacity>
       )}
+      <View className="absolute right-0 bottom-2">{leftComponent}</View>
     </View>
   );
 };

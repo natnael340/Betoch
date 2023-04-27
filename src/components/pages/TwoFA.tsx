@@ -1,18 +1,15 @@
 import {View} from 'react-native';
 import React, {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../navigators/Stack';
+import {useNavigation} from '@react-navigation/native';
+import AuthenticationTemplate from '../templates/AuthenticationTemplate';
 import {AuthForm} from './Signup';
 import Timer from '../atoms/timer';
-import AuthenticationTemplate from '../templates/AuthenticationTemplate';
 
-type NavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  'AccountVerfication'
->;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'TwoFA'>;
 
-const AccountVerfication = () => {
+const TwoFA = () => {
   const navigation = useNavigation<NavigationProp>();
   const [initialValue, setInitialValue] = useState<number | undefined>();
   const [authForm, setAuthForm] = useState<AuthForm>([
@@ -35,13 +32,13 @@ const AccountVerfication = () => {
   return (
     <View>
       <AuthenticationTemplate
-        title="Sign up"
+        title="Sign in"
         goBack={() => navigation.goBack()}
         forms={authForm}
         onChange={OnChangeForm}
         onSubmit={() => null}
-        authTitle="Verification"
-        authDescription="We’ve sent you a verification code to your email address abebexxxxxx@gmail.com "
+        authTitle="Two Factor Authentication"
+        authDescription="We’ve sent you a two factor authentication code to your email address abebexxxxxx@gmail.com "
         submitText="Continue"
         linkText="Resend code"
       />
@@ -49,4 +46,4 @@ const AccountVerfication = () => {
   );
 };
 
-export default AccountVerfication;
+export default TwoFA;

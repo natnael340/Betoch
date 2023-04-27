@@ -14,8 +14,8 @@ type Props = {
 };
 const OnBoardOneTemplate = ({Top, data, action, Center}: Props) => {
   return (
-    <View className="flex-1 justify-between bg-white">
-      <Container flex={1.7}>
+    <View className="flex-1 justify-between">
+      <Container flex={1.8}>
         <Top />
       </Container>
       <Container>

@@ -13,6 +13,7 @@ export type AuthForm = {
   value: string;
   inputType?: 'numeric' | 'email-address';
   showPassword?: boolean;
+  leftComponent?: JSX.Element;
 }[];
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Signup'>;
 const Signup = () => {
@@ -48,7 +49,7 @@ const Signup = () => {
             fields={authForm}
             onChange={OnChangeForm}
             submitText="Signup"
-            onSubmit={() => console.log('submitted')}
+            onSubmit={() => navigation.navigate('AccountVerfication')}
             togglePasswordVisibility={togglePasswordVisibility}
           />
         }

@@ -1,18 +1,17 @@
 import {View} from 'react-native';
 import React, {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../navigators/Stack';
+import {useNavigation} from '@react-navigation/native';
 import {AuthForm} from './Signup';
 import Timer from '../atoms/timer';
 import AuthenticationTemplate from '../templates/AuthenticationTemplate';
 
 type NavigationProp = NativeStackNavigationProp<
   RootStackParamList,
-  'AccountVerfication'
+  'PasswordResetRequest'
 >;
-
-const AccountVerfication = () => {
+const PasswordResetRequest = () => {
   const navigation = useNavigation<NavigationProp>();
   const [initialValue, setInitialValue] = useState<number | undefined>();
   const [authForm, setAuthForm] = useState<AuthForm>([
@@ -35,13 +34,13 @@ const AccountVerfication = () => {
   return (
     <View>
       <AuthenticationTemplate
-        title="Sign up"
+        title="Sign in"
         goBack={() => navigation.goBack()}
         forms={authForm}
         onChange={OnChangeForm}
-        onSubmit={() => null}
-        authTitle="Verification"
-        authDescription="We’ve sent you a verification code to your email address abebexxxxxx@gmail.com "
+        onSubmit={() => navigation.navigate('PasswordReset')}
+        authTitle="Password Reset"
+        authDescription="We’ve sent you a password reset code to your email address abebexxxxxx@gmail.com "
         submitText="Continue"
         linkText="Resend code"
       />
@@ -49,4 +48,4 @@ const AccountVerfication = () => {
   );
 };
 
-export default AccountVerfication;
+export default PasswordResetRequest;

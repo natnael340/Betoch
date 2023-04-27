@@ -4,27 +4,24 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../navigators/Stack';
 import {AuthForm} from './Signup';
-import Timer from '../atoms/timer';
 import AuthenticationTemplate from '../templates/AuthenticationTemplate';
 
 type NavigationProp = NativeStackNavigationProp<
   RootStackParamList,
-  'AccountVerfication'
+  'PasswordReset'
 >;
-
-const AccountVerfication = () => {
+const PasswordReset = () => {
   const navigation = useNavigation<NavigationProp>();
-  const [initialValue, setInitialValue] = useState<number | undefined>();
   const [authForm, setAuthForm] = useState<AuthForm>([
     {
-      name: 'Code',
+      name: 'New Password',
       value: '',
-      leftComponent: (
-        <Timer
-          initialValue={initialValue}
-          resetInitialValue={() => setInitialValue(0)}
-        />
-      ),
+      showPassword: false,
+    },
+    {
+      name: 'Confirm Password',
+      value: '',
+      showPassword: false,
     },
   ]);
   const OnChangeForm = (field: string, value: string) => {
@@ -32,21 +29,28 @@ const AccountVerfication = () => {
       authForm.map(form => (form.name === field ? {...form, value} : form)),
     );
   };
+  const togglePasswordVisibility = (field: string) => {
+    setAuthForm(
+      authForm.map(form =>
+        form.name === field
+          ? {...form, showPassword: !form?.showPassword}
+          : form,
+      ),
+    );
+  };
   return (
     <View>
       <AuthenticationTemplate
-        title="Sign up"
+        title="Password Reset"
         goBack={() => navigation.goBack()}
         forms={authForm}
         onChange={OnChangeForm}
         onSubmit={() => null}
-        authTitle="Verification"
-        authDescription="We’ve sent you a verification code to your email address abebexxxxxx@gmail.com "
         submitText="Continue"
-        linkText="Resend code"
+        togglePasswordVisibility={togglePasswordVisibility}
       />
     </View>
   );
 };
 
-export default AccountVerfication;
+export default PasswordReset;
