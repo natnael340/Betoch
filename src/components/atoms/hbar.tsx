@@ -1,12 +1,12 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-const homeHeader = () => {
+const hbar = () => {
   return (
     <View>
-      <Text>homeHeader</Text>
+      <Text>hbar</Text>
     </View>
   );
 };
 
-export default homeHeader;
+export default hbar;

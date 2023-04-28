@@ -9,6 +9,7 @@ import TwoFA from '../components/pages/TwoFA';
 import PasswordReset from '../components/pages/PasswordReset';
 import PasswordResetRequest from '../components/pages/PasswordResetRequest';
 import AccountVerfication from '../components/pages/AccountVerfication';
+import Home from '../components/pages/Home';
 export type RootStackParamList = {
   OnboardOne: undefined;
   OnboardTwo: undefined;
@@ -19,6 +20,7 @@ export type RootStackParamList = {
   PasswordReset: undefined;
   PasswordResetRequest: undefined;
   AccountVerfication: undefined;
+  Home: undefined;
 };
 const Stack = () => {
   const StackNav = createNativeStackNavigator<RootStackParamList>();
@@ -48,6 +50,9 @@ const Stack = () => {
           name="PasswordResetRequest"
           component={PasswordResetRequest}
         />
+      </StackNav.Group>
+      <StackNav.Group>
+        <StackNav.Screen name="Home" component={Home} />
       </StackNav.Group>
     </StackNav.Navigator>
   );
