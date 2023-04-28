@@ -11,7 +11,7 @@ type Props = {
 };
 const HomeTemplate = ({location, items}: Props) => {
   return (
-    <View className="flex-1 justify-between ">
+    <View className="flex-1 ">
       <View className="h-40">
         <OnboardTwoTopHeader />
       </View>

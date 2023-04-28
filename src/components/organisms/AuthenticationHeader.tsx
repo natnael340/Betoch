@@ -6,7 +6,7 @@ import AuthHeader from '../molecules/authHeader';
 
 type Props = {
   title: string;
-  goBack: () => void;
+  goBack?: () => void;
 };
 const AuthenticationHeader = ({title, goBack}: Props) => {
   return (

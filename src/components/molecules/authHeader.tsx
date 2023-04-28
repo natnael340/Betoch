@@ -6,14 +6,18 @@ import Title from '../atoms/authTitle';
 
 type Props = {
   title: string;
-  goBack: () => void;
+  goBack?: () => void;
 };
 const authHeader = ({title, goBack}: Props) => {
   return (
     <View className="justify-center items-center w-full ">
-      <TouchableOpacity onPress={goBack} className="absolute left-0 top-0">
-        <FontAwesome name="angle-left" size={24} color={black} />
-      </TouchableOpacity>
+      {goBack ? (
+        <TouchableOpacity onPress={goBack} className="absolute left-0 top-0">
+          <FontAwesome name="angle-left" size={24} color={black} />
+        </TouchableOpacity>
+      ) : (
+        <></>
+      )}
 
       <Title title={title} />
     </View>

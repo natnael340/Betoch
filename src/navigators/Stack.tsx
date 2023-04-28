@@ -9,7 +9,9 @@ import TwoFA from '../components/pages/TwoFA';
 import PasswordReset from '../components/pages/PasswordReset';
 import PasswordResetRequest from '../components/pages/PasswordResetRequest';
 import AccountVerfication from '../components/pages/AccountVerfication';
-import Home from '../components/pages/Home';
+import ResidenceDetail from '../components/pages/ResidenceDetail';
+import Tab, {TabNavigatorParamList} from './Tab';
+import {NavigatorScreenParams} from '@react-navigation/native';
 export type RootStackParamList = {
   OnboardOne: undefined;
   OnboardTwo: undefined;
@@ -20,7 +22,8 @@ export type RootStackParamList = {
   PasswordReset: undefined;
   PasswordResetRequest: undefined;
   AccountVerfication: undefined;
-  Home: undefined;
+  ResidenceDetail: undefined;
+  App: NavigatorScreenParams<TabNavigatorParamList>;
 };
 const Stack = () => {
   const StackNav = createNativeStackNavigator<RootStackParamList>();
@@ -51,8 +54,9 @@ const Stack = () => {
           component={PasswordResetRequest}
         />
       </StackNav.Group>
+      <StackNav.Screen name="App" component={Tab} />
       <StackNav.Group>
-        <StackNav.Screen name="Home" component={Home} />
+        <StackNav.Screen name="ResidenceDetail" component={ResidenceDetail} />
       </StackNav.Group>
     </StackNav.Navigator>
   );

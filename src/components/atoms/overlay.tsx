@@ -1,21 +1,23 @@
-import {StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 
-type props = {
-  style: StyleProp<ViewStyle>;
+type Props = {
+  onPress: () => void;
 };
-const overlay = ({style}: props) => {
-  return <View style={[styles.container, style]} />;
+const overlay = ({onPress}: Props) => {
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      className="absolute top-0 bottom-0 right-0 left-0 -z-10"
+      style={styles.container}
+    />
+  );
 };
 
 export default overlay;
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
 });

@@ -10,7 +10,7 @@ import Facility from '../molecules/facility';
 type Props = {
   item: itemsType;
 };
-const ItemContainer = ({item}: Props) => {
+const Item = ({item}: Props) => {
   return (
     <View
       className="border flex-row rounded-2xl"
@@ -44,4 +44,4 @@ const ItemContainer = ({item}: Props) => {
   );
 };
 
-export default ItemContainer;
+export default Item;

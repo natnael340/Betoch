@@ -36,7 +36,11 @@ const TwoFA = () => {
         goBack={() => navigation.goBack()}
         forms={authForm}
         onChange={OnChangeForm}
-        onSubmit={() => navigation.navigate('Home')}
+        onSubmit={() =>
+          navigation.navigate('App', {
+            screen: 'Home',
+          })
+        }
         authTitle="Two Factor Authentication"
         authDescription="We’ve sent you a two factor authentication code to your email address abebexxxxxx@gmail.com "
         submitText="Continue"
