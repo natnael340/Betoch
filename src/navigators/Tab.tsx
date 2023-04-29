@@ -1,10 +1,11 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Home from '../components/pages/Home';
 import Saved from '../components/pages/Saved';
+import {NavigatorScreenParams} from '@react-navigation/native';
+import HomeStack, {HomeStackParamList} from './HomeStack';
 
 export type TabNavigatorParamList = {
-  Home: undefined;
+  Home: NavigatorScreenParams<HomeStackParamList>;
   Saved: undefined;
   Messages: undefined;
   Account: undefined;
@@ -16,7 +17,7 @@ const Tab = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <TabNav.Screen name="Home" component={Home} />
+      <TabNav.Screen name="Home" component={HomeStack} />
       <TabNav.Screen name="Saved" component={Saved} />
     </TabNav.Navigator>
   );

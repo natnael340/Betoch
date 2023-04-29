@@ -13,7 +13,6 @@ type Props = {
 };
 
 const OnboardTwoBottom = ({data, OnNext, currentScreenIndex}: Props) => {
-  console.log('here', currentScreenIndex);
   return (
     <View className="flex-1 justify-between m-0 p-0">
       <OnBoard title={data.title} info={data.info} />

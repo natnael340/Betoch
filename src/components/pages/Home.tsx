@@ -1,6 +1,13 @@
 import React from 'react';
 import HomeTemplate from '../templates/HomeTemplate';
+import {HomeStackParamList} from '../../navigators/HomeStack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
 
+type NavigationProp = NativeStackNavigationProp<
+  HomeStackParamList,
+  'HomeScreen'
+>;
 export type items = {
   id: number;
   title: string;
@@ -21,6 +28,8 @@ export type items = {
 };
 
 const Home = () => {
+  const navigation = useNavigation<NavigationProp>();
+
   const data: items[] = [
     {
       id: 1,
@@ -45,7 +54,19 @@ const Home = () => {
       ],
     },
   ];
-  return <HomeTemplate location="Addis Ababa, Jemo Michael" items={data} />;
+
+  const onSelectItem = (id: number) => {
+    navigation.navigate('ResidenceDetail', {
+      id,
+    });
+  };
+  return (
+    <HomeTemplate
+      location="Addis Ababa, Jemo Michael"
+      items={data}
+      onSelectItem={onSelectItem}
+    />
+  );
 };
 
 export default Home;

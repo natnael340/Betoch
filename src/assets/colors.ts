@@ -7,3 +7,4 @@ export const light = '#F1F1F1';
 export const gold = '#AB8000';
 export const grey = '#ABABAB';
 export const darkblue = '#435E70';
+export const darkgrey = '#272727';

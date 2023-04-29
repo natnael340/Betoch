@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import HomeHeader from '../organisms/HomeHeader';
 import OnboardTwoTopHeader from '../organisms/OnboardTwoTopHeader';
@@ -8,8 +8,9 @@ import SearchResult from '../molecules/searchResult';
 type Props = {
   location: string;
   items: itemsType[];
+  onSelectItem: (id: number) => void;
 };
-const HomeTemplate = ({location, items}: Props) => {
+const HomeTemplate = ({location, items, onSelectItem}: Props) => {
   return (
     <View className="flex-1 ">
       <View className="h-40">
@@ -22,7 +23,9 @@ const HomeTemplate = ({location, items}: Props) => {
         <SearchResult result={items.length} />
         <View className="h-1 w-full" />
         {items.map(item => (
-          <Item item={item} key={item.id} />
+          <TouchableOpacity key={item.id} onPress={() => onSelectItem(item.id)}>
+            <Item item={item} />
+          </TouchableOpacity>
         ))}
       </View>
     </View>

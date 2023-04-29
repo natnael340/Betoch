@@ -12,7 +12,6 @@ const Timer = ({initialValue, resetInitialValue}: Props) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log(timerSecRef.current);
       if (initialValue === undefined || initialValue === 0) {
         clearInterval(interval);
         return;

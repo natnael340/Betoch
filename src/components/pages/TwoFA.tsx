@@ -39,6 +39,7 @@ const TwoFA = () => {
         onSubmit={() =>
           navigation.navigate('App', {
             screen: 'Home',
+            params: {screen: 'HomeScreen'},
           })
         }
         authTitle="Two Factor Authentication"

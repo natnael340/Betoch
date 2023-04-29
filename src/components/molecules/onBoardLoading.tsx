@@ -7,7 +7,6 @@ type Props = {
   active: number;
 };
 const onBoardLoading = ({active}: Props) => {
-  console.log(active);
   return (
     <View className="flex-row">
       <Bullet color={active === 1 ? secondary : secondaryPassive} />
