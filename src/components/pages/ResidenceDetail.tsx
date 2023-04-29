@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ResidenceDetailTemplate from '../templates/ResidenceDetailTemplate';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {HomeStackParamList} from '../../navigators/HomeStack';
@@ -34,9 +34,36 @@ export type itemDetail = {
       }[]
     | [];
 };
+type form = {
+  name: string;
+  value: string;
+  inputType?: 'numeric' | 'email-address';
+  showPassword?: boolean;
+  leftComponent?: JSX.Element;
+}[];
 const ResidenceDetail = () => {
   const navigation = useNavigation<NavigationProp>();
-
+  const [tourFormVisible, setTourFormVisible] = useState(false);
+  const date = new Date();
+  date.setHours(date.getHours() + 2);
+  const [tourForm, setTourForm] = useState<form>([
+    {
+      name: 'First Name',
+      value: '',
+    },
+    {
+      name: 'Last Name',
+      value: '',
+    },
+    {
+      name: 'Phone Number',
+      value: '',
+    },
+    {
+      name: 'Date',
+      value: `${date.toLocaleDateString()} ${date.getHours()}:00`,
+    },
+  ]);
   const dataDetail: itemDetail = {
     id: 1,
     title: 'Condominium - Studio',
@@ -76,10 +103,21 @@ const ResidenceDetail = () => {
       },
     ],
   };
+  const onChange = (field: string, value: string) => {
+    setTourForm(
+      tourForm.map(tour => (tour.name === field ? {...tour, value} : tour)),
+    );
+  };
+
   return (
     <ResidenceDetailTemplate
       item={dataDetail}
       goBack={() => navigation.goBack()}
+      tourForm={tourForm}
+      visible={tourFormVisible}
+      toggleVisibility={() => setTourFormVisible(!tourFormVisible)}
+      onChange={onChange}
+      onRequestTour={() => null}
     />
   );
 };

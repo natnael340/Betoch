@@ -10,8 +10,8 @@ type Props = {
     leftComponent?: JSX.Element;
   }[];
   onChange: (field: string, value: string) => void;
-  onSubmit: () => void;
-  submitText: string;
+  onSubmit?: () => void;
+  submitText?: string;
   togglePasswordVisibility?: (field: string) => void;
   additionalFormComponent?: JSX.Element;
 };
@@ -38,7 +38,7 @@ const FormBody = ({
         />
       ))}
       {additionalFormComponent}
-      <Button value={submitText} onPress={onSubmit} />
+      {onSubmit ? <Button value={submitText || ''} onPress={onSubmit} /> : null}
     </>
   );
 };

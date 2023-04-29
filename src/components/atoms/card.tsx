@@ -21,11 +21,11 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 6,
+      height: 2,
     },
-    shadowOpacity: 0.39,
-    shadowRadius: 8.3,
+    shadowOpacity: 0.5,
+    shadowRadius: 3.84,
 
-    elevation: 13,
+    elevation: 5,
   },
 });
